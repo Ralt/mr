@@ -44,4 +44,7 @@
   (declare (ignore args))
   (db-init)
   (start (parse-integer (or (uiop:getenv "PORT") "4242")) (uiop:getenv "ADDRESS"))
-  (sb-impl::toplevel-repl nil))
+  ;; hack.
+  ;; What's shown in http://stackoverflow.com/a/25811271/851498 doesn't work.
+  ;; 987654321 seconds is still 31 years anyway.
+  (sleep 987654321))

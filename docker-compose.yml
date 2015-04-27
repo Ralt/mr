@@ -1,0 +1,21 @@
+lisp:
+  build: .
+  ports:
+    - 4242:4242
+  links:
+    - db
+  volumes:
+    - .:/root/common-lisp/mr
+  environment:
+    DBNAME: postgres
+    DBUSER: mr
+    DBPASS: password
+    DBHOST: db
+
+db:
+  image: postgres
+  volumes:
+    - /var/lib/postgresql/data
+  environment:
+    POSTGRES_PASSWORD: password
+    POSTGRES_USER: mr
