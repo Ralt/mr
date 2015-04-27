@@ -1,0 +1,10 @@
+*.FASL
+*.fasl
+*.lisp-temp
+
+bin/
+deps
+dist/
+install-deps
+quicklisp.lisp
+.quicklocal/
