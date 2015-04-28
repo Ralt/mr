@@ -20,7 +20,7 @@
 
 ;;;; db version
 (defvar *version* 1)
-(defvar *debug* nil)
+(defvar *debug* t)
 
 (defun db-init ()
   (setf *db-name* (uiop:getenv "DBNAME"))
@@ -40,10 +40,19 @@
       (unless *debug*
         (uiop:quit -1)))))
 
+(defun start-swank (port)
+  (setf swank::*loopback-interface* "0.0.0.0")
+  (swank-loader:init)
+  (swank:create-server :port port
+                       :style swank:*communication-style*
+                       :dont-close t))
+
 (defun main (&rest args)
   (declare (ignore args))
   (db-init)
   (start (parse-integer (or (uiop:getenv "PORT") "4242")) (uiop:getenv "ADDRESS"))
+  (when *debug*
+    (start-swank (parse-integer (or (uiop:getenv "SWANKPORT") "4005"))))
   ;; hack.
   ;; What's shown in http://stackoverflow.com/a/25811271/851498 doesn't work.
   ;; 987654321 seconds is still 31 years anyway.

@@ -3,7 +3,7 @@
   :author "Florian Margaine <florian@margaine.com>"
   :license "MIT License"
   :serial t
-  :depends-on (:hunchentoot :postmodern :alexandria :cl-ppcre)
+  :depends-on (:hunchentoot :postmodern :alexandria :cl-ppcre :swank)
   :components ((:module "src"
                         :components
                         ((:file "package")
