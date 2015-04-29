@@ -62,8 +62,22 @@ $(APP_OUT): $(SOURCES) bin/buildapp $(QL_LOCAL)/setup.lisp install-deps
 
 docker-create:
 	@docker build -t ralt/mr_web .
-	@docker run --volume=/var/lib/postgresql/data --env="POSTGRES_PASSWORD=password" --env="POSTGRES_USER=mr" --name=mr_postgres postgres &
-	@docker run --volume="$(PWD):/root/common-lisp/mr" --env="DBNAME=postgres" --env="DBUSER=mr" --env="DBPASS=password" --env="DBHOST=db" --link="mr_postgres:db" --publish="4242:4242" --publish="5555:4005" --name="mr_web" ralt/mr &
+	@docker run \
+		--volume=/var/lib/postgresql/data \
+		--env="POSTGRES_PASSWORD=password" \
+		--env="POSTGRES_USER=mr" \
+		--name=mr_postgres postgres &
+	@docker run \
+		--volume="$(PWD):/root/common-lisp/mr" \
+		--env="DBNAME=postgres" \
+		--env="DBUSER=mr" \
+		--env="DBPASS=password" \
+		--env="DBHOST=db" \
+		--link="mr_postgres:db" \
+		--publish="4242:4242" \
+		--publish="5555:4005" \
+		--name="mr_web" \
+		ralt/mr &
 	@echo "mr_postgres and mr_web created and running!"
 
 docker-start:
