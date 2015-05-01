@@ -1,8 +1,10 @@
 (in-package #:mr.user)
 
 
-(defun login-get ()
-  "login-get")
+(defparameter +login.html+ (djula:compile-template* "login.html"))
 
-(defun login-post ()
-  "login-post")
+(defun login ()
+  (djula:render-template* +login.html+))
+
+(defun login-github ()
+  "login github")
