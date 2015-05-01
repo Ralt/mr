@@ -1,23 +1,6 @@
 (in-package #:mr)
 
 
-;;;; hunchentoot basic handling
-(defvar *server* nil)
-
-(defun start (&optional (port 4242) (address "localhost"))
-  (setf *server*
-        (h:start
-         (make-instance
-          'h:easy-acceptor :port port :address address
-          :document-root (or
-                          (uiop:getenv "DOCUMENT_ROOT")
-                          (merge-pathnames
-                           #p"public/"
-                           (asdf:system-source-directory :mr)))))))
-
-(defun stop (&optional (soft t))
-  (h:stop *server* :soft soft))
-
 ;;;; db version
 (defvar *version* 1)
 (defvar *debug* t)
