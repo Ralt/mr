@@ -17,4 +17,5 @@
     (return-from login-github-authorized))
   (h:delete-session-value 'github-oauth-state)
   (setf (h:session-value 'github-access-token) (mr.github:oauth-access-token code))
+  (login-user)
   (h:redirect "/"))
