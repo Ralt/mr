@@ -34,3 +34,11 @@
                    (list* "client_secret" (oauth-get-client-secret))))
      :external-format :utf-8))
    "access_token"))
+
+(setf ironclad:*prng* (ironclad:make-prng :fortuna))
+
+(defun oauth-generate-state ()
+  (ironclad:byte-array-to-hex-string (ironclad:random-data 32)))
+
+(defun oauth-validate-state (old-state new-state)
+  (string= old-state new-state))

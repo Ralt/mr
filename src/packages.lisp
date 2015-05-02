@@ -12,6 +12,8 @@
                     (#:j #:jsown))
   (:export :user-full-name
            :oauth-authorize-url
+           :oauth-generate-state
+           :oauth-validate-state
            :oauth-access-token))
 
 (defpackage #:mr.user
