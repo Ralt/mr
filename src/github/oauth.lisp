@@ -21,10 +21,10 @@
       *oauth-client-secret*))
 
 (defun oauth-access-token (code)
-  (jsown:val
-   (jsown:parse
-    (flexi-streams:octets-to-string
-     (drakma:http-request
+  (j:val
+   (j:parse
+    (f:octets-to-string
+     (d:http-request
       *oauth-access-token-url*
       :method :post
       :accept "application/json"

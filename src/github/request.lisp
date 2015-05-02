@@ -5,9 +5,9 @@
 (defvar *github-accept-header* "application/vnd.github.v3+json")
 
 (defun request (path access-token)
-  (jsown:parse
-   (flexi-streams:octets-to-string
-    (drakma:http-request
+  (j:parse
+   (f:octets-to-string
+    (d:http-request
      (concatenate 'string *github-api-endpoint* path)
      :accept *github-accept-header*
      :additional-headers (list
