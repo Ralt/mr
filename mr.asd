@@ -15,24 +15,21 @@
                :flexi-streams)
   :components ((:module "src"
                         :components
-                        ((:file "package")
+                        ((:file "packages")
                          (:file "db")
                          (:file "hunchentoot")
                          (:file "templates")))
                (:module "src/github"
                         :components
-                        ((:file "package")
-                         (:file "request")
+                        ((:file "request")
                          (:file "oauth")
                          (:file "user")))
                (:module "src/user"
                         :components
-                        ((:file "package")
-                         (:file "db")
+                        ((:file "db")
                          (:file "github")
                          (:file "login")))
                (:module "src/run"
                         :components
-                        ((:file "package")
-                         (:file "routes")
+                        ((:file "routes")
                          (:file "mr")))))
