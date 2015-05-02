@@ -8,19 +8,18 @@
       (h:session-value 'mr.user:github-access-token)
     (declare (ignore value))
     (if present-p
-        (djula:render-template* +home.html+ nil
-                                :token (h:session-value 'mr.user:github-access-token))
+        (djula:render-template* +home.html+)
         (h:redirect "/user/login"))))
 
-(h:define-easy-handler (login-get :uri (method-path :get "/user/login")) ()
+(h:define-easy-handler (user-login-get :uri (method-path :get "/user/login")) ()
   (mr.user:login))
 
-(h:define-easy-handler (login-github :uri (method-path :get "/user/login/github")) ()
+(h:define-easy-handler (user-login-github :uri (method-path :get "/user/login/github")) ()
   (mr.user:login-github))
 
-(h:define-easy-handler (login-github-authorized
+(h:define-easy-handler (user-login-github-authorized
                         :uri (method-path :get "/user/login/github/authorized")) (code state)
   (mr.user:login-github-authorized code state))
 
-(h:define-easy-handler (logout :uri (method-path :get "/user/logout")) ()
+(h:define-easy-handler (user-logout :uri (method-path :get "/user/logout")) ()
   (mr.user:logout))

@@ -21,8 +21,7 @@
   (:export :login
            :login-github
            :login-github-authorized
-           :logout
-           :github-access-token))
+           :logout))
 
 (defpackage #:mr.run
   (:use #:cl)
