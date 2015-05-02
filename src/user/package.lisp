@@ -3,4 +3,6 @@
   (:local-nicknames (#:h #:hunchentoot)
                     (#:pm #:postmodern))
   (:export :login
-           :login-github))
+           :login-github
+           :login-github-authorized
+           :logout))
