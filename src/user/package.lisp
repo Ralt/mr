@@ -5,4 +5,5 @@
   (:export :login
            :login-github
            :login-github-authorized
-           :logout))
+           :logout
+           :github-access-token))
