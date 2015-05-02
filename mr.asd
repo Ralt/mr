@@ -22,6 +22,8 @@
                (:module "src/user"
                         :components
                         ((:file "package")
+                         (:file "github")
+                         (:file "oauth")
                          (:file "login")))
                (:module "src/run"
                         :components
