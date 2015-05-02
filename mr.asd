@@ -11,7 +11,8 @@
                :djula
                :ironclad
                :drakma
-               :jsown)
+               :jsown
+               :flexi-streams)
   :components ((:module "src"
                         :components
                         ((:file "package")
