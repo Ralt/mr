@@ -19,11 +19,17 @@
                          (:file "db")
                          (:file "hunchentoot")
                          (:file "templates")))
+               (:module "src/github"
+                        :components
+                        ((:file "package")
+                         (:file "request")
+                         (:file "oauth")
+                         (:file "user")))
                (:module "src/user"
                         :components
                         ((:file "package")
+                         (:file "db")
                          (:file "github")
-                         (:file "oauth")
                          (:file "login")))
                (:module "src/run"
                         :components

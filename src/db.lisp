@@ -22,7 +22,9 @@
                (merge-pathnames
                 (concatenate 'string name ".sql")
                 *db-folder*)))
-          '("schema_version")))
+          '("schema_version"
+            "user"
+            "create_user")))
 
 
 (loop
