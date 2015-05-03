@@ -19,10 +19,10 @@ only that method."
                    ,path))))
 
 ;;;; hunchentoot basic handling
-(defvar *server* nil)
+(defvar *hunchentoot-server* nil)
 
-(defun start (&optional (port 4242) (address "localhost"))
-  (setf *server*
+(defun hunchentoot-start (&optional (port 4242) (address "localhost"))
+  (setf *hunchentoot-server*
         (h:start
          (make-instance
           'h:easy-acceptor :port port :address address
@@ -32,5 +32,5 @@ only that method."
                            #p"public/"
                            (asdf:system-source-directory :mr)))))))
 
-(defun stop (&optional (soft t))
-  (h:stop *server* :soft soft))
+(defun hunchentoot-stop (&optional (soft t))
+  (h:stop *hunchentoot-server* :soft soft))

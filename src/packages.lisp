@@ -3,14 +3,25 @@
   (:local-nicknames (#:h #:hunchentoot)
                     (#:pm #:postmodern)
                     (#:a #:alexandria))
-  (:export :with-db))
+  (:export :with-db
+           :db-version
+           :db-upgrade
+           :db-initialize
+           :*db-name*
+           :*db-user*
+           :*db-pass*
+           :*db-host*
+           :*db-port*
+           :hunchentoot-start
+           :hunchentoot-stop
+           :swank-start))
 
 (defpackage #:mr.github
   (:use #:cl)
   (:local-nicknames (#:d #:drakma)
                     (#:f #:flexi-streams)
                     (#:j #:jsown))
-  (:export :user-full-name
+  (:export :user-login
            :oauth-authorize-url
            :oauth-generate-state
            :oauth-validate-state
@@ -23,10 +34,12 @@
   (:export :login
            :login-github
            :login-github-authorized
-           :logout))
+           :logout
+           :id))
 
 (defpackage #:mr.run
   (:use #:cl)
   (:local-nicknames (#:h #:hunchentoot)
                     (#:pm #:postmodern)
-                    (#:a #:alexandria)))
+                    (#:a #:alexandria))
+  (:export :main))

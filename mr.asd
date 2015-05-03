@@ -18,6 +18,7 @@
                         ((:file "packages")
                          (:file "db")
                          (:file "hunchentoot")
+                         (:file "swank")
                          (:file "templates")))
                (:module "src/github"
                         :components

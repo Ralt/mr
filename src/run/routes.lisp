@@ -5,7 +5,7 @@
 
 (h:define-easy-handler (home :uri (method-path :get "/")) ()
   (multiple-value-bind (value present-p)
-      (h:session-value 'mr.user:github-access-token)
+      (h:session-value 'mr.user:id)
     (declare (ignore value))
     (if present-p
         (djula:render-template* +home.html+)

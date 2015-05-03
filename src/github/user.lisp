@@ -1,6 +1,6 @@
 (in-package #:mr.github)
 
 
-(defun user-full-name (access-token)
+(defun user-login (access-token)
   (j:val (request "/user" access-token)
          "login"))

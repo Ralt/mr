@@ -57,7 +57,7 @@ $(APP_OUT): $(SOURCES) bin/buildapp $(QL_LOCAL)/setup.lisp install-deps
 			--asdf-tree $(QL_LOCAL)/dists \
 			--asdf-path . \
 			--load-system $(APP_NAME) \
-			--entry $(APP_NAME)::main \
+			--entry mr.run:main \
 			--output $(APP_OUT)
 
 docker-create:

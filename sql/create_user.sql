@@ -1,6 +1,6 @@
 -- Creates a user
 
-create or replace function create_user(p_login varchar(255)) returns void as $$
-    insert into user (login) values (p_login);
-end; $$
+create or replace function create_user(p_login varchar(255)) returns integer as $$
+    insert into users (login) values (p_login) returning id;
+$$
 language sql;

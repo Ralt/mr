@@ -1,6 +1,6 @@
-(in-package #:mr)
+(in-package #:mr.user)
 
 
-(pm:defprepared user "select user($1)" :single)
+(pm:defprepared user-by-login "select user_by_login($1)" :single)
 
-(pm:defprepared user-create "select create_user($1)" :none)
+(pm:defprepared user-create "select create_user($1)" :single)
