@@ -23,8 +23,8 @@
                 (concatenate 'string name ".sql")
                 *db-folder*)))
           '("schema_version"
-            "user_by_login"
-            "create_user")))
+            "user/user_by_login"
+            "user/create_user")))
 
 
 (loop
