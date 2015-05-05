@@ -21,8 +21,7 @@ create table users (
 create table repositories (
     id serial primary key,
     name varchar(255) not null,
-    path varchar(255) not null,
-    origin_id integer references remotes(id)
+    path varchar(255) not null
 );
 
 -----
@@ -38,7 +37,8 @@ create table user_repository (
 create table remotes (
     id serial primary key,
     url varchar(255) unique not null,
-    repository_id integer references repositories(id) not null
+    repository_id integer references repositories(id) not null,
+    is_origin boolean not null
 );
 
 -----
