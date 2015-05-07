@@ -43,6 +43,33 @@ create table remotes (
 
 -----
 
+create or replace function trigger_remote_is_only_origin_for_repository() returns trigger as $$
+declare
+    counter int;
+begin
+    select count(*) into counter
+    from remotes
+    where repository_id = new.repository_id
+    and is_origin = true;
+
+    if counter > 1 then
+        raise exception 'Cannot have more than one origin for a repository';
+    end if;
+
+    return new;
+end;
+$$ language plpgsql;
+
+-----
+
+create constraint trigger remote_is_only_origin_for_repository
+after insert or update of is_origin
+on remotes
+for each row
+execute procedure trigger_remote_is_only_origin_for_repository();
+
+-----
+
 create type review_status as enum ('opened', 'rejected', 'closed');
 
 -----
