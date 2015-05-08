@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="post">
+  {{ csrf }}
+
+  <label>
+    <p>Choose the repository</p>
+    <select name="repository">
+      {% for repository in repositories %}
+        <option value="{{ repository.id }}">
+          {{ repository.name }}
+        </option>
+      {% endfor %}
+    </select>
+  </label>
+
+  {% if remotes %}
+  <label>
+    <p>Choose the fork remote</p>
+    <select name="remote">
+      {% for remote in remotes %}
+      <option value="{{ remote.id }}">
+        {{ remote.url }}
+      </option>
+      {% endfor %}
+    </select>
+  </label>
+  {% endif %}
+
+  {% if origin_branches %}
+  <label>
+    <p>Choose the branch on the origin remote</p>
+    <select name="origin-branch">
+      {% for branch in origin_branches %}
+      <option value="{{ branch.id }}">
+        {{ branch.name }}
+      </option>
+      {% endfor %}
+    </select>
+  </label>
+  {% endif %}
+
+  {% if fork_branches %}
+  <label>
+    <p>Choose the branch on the fork remote</p>
+    <select name="fork-branch">
+      {% for branch in fork_branches %}
+      <option value="{{ branch.id }}">
+        {{ branch.name }}
+      </option>
+      {% endfor %}
+    </select>
+  </label>
+  {% endif %}
+
+  <input type="submit" value="Add diff">
+
+</form>
+{% endblock %}
