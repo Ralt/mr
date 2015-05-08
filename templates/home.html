@@ -7,7 +7,7 @@ Home!
 <p>
   {% for review in reviews %}
   <div class="title">
-    <a href="/review/{{ review.id }}">
+    <a href="/review?id={{ review.id }}">
       {{ review.title }}
     </a>
   </div>

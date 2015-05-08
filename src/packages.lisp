@@ -41,7 +41,8 @@
 (defpackage #:mr.review
   (:use #:cl)
   (:local-nicknames (#:pm #:postmodern))
-  (:export :list-reviews))
+  (:export :list-reviews
+           :get-one))
 
 (defpackage #:mr.run
   (:use #:cl)

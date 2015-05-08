@@ -23,3 +23,6 @@
 
 (h:define-easy-handler (user-logout :uri (mr:method-path :get "/user/logout")) ()
   (mr.user:logout))
+
+(h:define-easy-handler (review-get-one :uri (mr:method-path :get "/review")) (id)
+  (mr.review:get-one id))
