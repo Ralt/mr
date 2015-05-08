@@ -26,3 +26,6 @@
 
 (h:define-easy-handler (review-get-one :uri (mr:method-path :get "/review")) (id)
   (mr.review:get-one id))
+
+(h:define-easy-handler (review-diff-add :uri (mr:method-path :get "/review/diff/add")) (review)
+  (mr.review:add-diff-get review))

@@ -70,6 +70,18 @@ execute procedure trigger_remote_is_only_origin_for_repository();
 
 -----
 
+create table branches (
+    id serial primary key,
+    name varchar(255) not null,
+    remote_id integer references remotes(id) not null
+);
+
+-----
+
+create unique index branches_repository_index on branches (name, remote_id);
+
+-----
+
 create type review_status as enum ('opened', 'rejected', 'closed');
 
 -----

@@ -42,7 +42,8 @@
   (:use #:cl)
   (:local-nicknames (#:pm #:postmodern))
   (:export :list-reviews
-           :get-one))
+           :get-one
+           :add-diff-get))
 
 (defpackage #:mr.run
   (:use #:cl)

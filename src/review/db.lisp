@@ -8,7 +8,7 @@ where status = 'opened'
 " :plists)
 
 (pm:defprepared get-one-review "
-select r.title, u.login as owner, r.status
+select r.id, r.title, u.login as owner, r.status
 from reviews r
 left join users u
 on r.owner = u.id
