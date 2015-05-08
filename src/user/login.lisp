@@ -11,7 +11,7 @@
   (mr:with-db
     (let* ((login (mr.github:user-login (h:session-value 'github-access-token)))
            (user-id (user-by-login login)))
-      (unless (eq user-id 'null)
+      (when (eq user-id 'null)
         (setf user-id (user-create login)))
       (setf (h:session-value 'id) user-id))))
 

@@ -76,6 +76,7 @@ create type review_status as enum ('opened', 'rejected', 'closed');
 
 create table reviews (
     id serial primary key,
+    title varchar(255) not null,
     owner integer references users(id) not null,
     status review_status not null
 );

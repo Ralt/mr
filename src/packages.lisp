@@ -14,7 +14,8 @@
            :*db-port*
            :hunchentoot-start
            :hunchentoot-stop
-           :swank-start))
+           :swank-start
+           :method-path))
 
 (defpackage #:mr.github
   (:use #:cl)
@@ -36,6 +37,11 @@
            :login-github-authorized
            :logout
            :id))
+
+(defpackage #:mr.review
+  (:use #:cl)
+  (:local-nicknames (#:pm #:postmodern))
+  (:export :list-reviews))
 
 (defpackage #:mr.run
   (:use #:cl)

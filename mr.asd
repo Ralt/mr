@@ -30,6 +30,10 @@
                         ((:file "db")
                          (:file "github")
                          (:file "login")))
+               (:module "src/review"
+                        :components
+                        ((:file "db")
+                         (:file "list")))
                (:module "src/run"
                         :components
                         ((:file "routes")

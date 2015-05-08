@@ -3,4 +3,14 @@
 {% block content %}
 Home!
 <a href="/user/logout">logout</a>
+
+<p>
+  {% for review in reviews %}
+  <div class="title">
+    <a href="/review/{{ review.id }}">
+      {{ review.title }}
+    </a>
+  </div>
+  {% endfor %}
+</p>
 {% endblock %}
